@@ -1,24 +1,27 @@
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
+
 class Solution {
-    public static int solve(String word1, String word2) {
-        int min = Integer.MAX_VALUE;
-        for(int i=0; i<word1.length(); i++){
-            int match=0;
-            int j = i;
-            int k = i;
-            for(; j<word2.length(); j++){
-                if(word1.charAt(k)==word2.charAt(j)){
-                    match++;    
-                    k++; 
-                } else break;  
-            }
-            if(j==word2.length()){
-                System.out.println(match+" "+i+" "+j);
-                min=Math.min(min, word2.length()-match);
-            }
-            
-        }
-        return min;
+    public static void main(String[] args) {
+        // first problem
+        Solution1 solution1 = new Solution1();
+        System.out.println(solution1.isInterleave("aabcc", "dbbca","aadbbcbcac"));
+        
+        // second problem
+        Solution2 solution2 = new Solution2();
+        System.out.println(solution2.solve(new ArrayList<>(Arrays.asList(1,1,1,2,2,3))));
+
+        // third problem
+        Solution3 solution3 = new Solution3();
+        ArrayList<ArrayList<Integer>> inp = new ArrayList<>();
+        inp.add(new ArrayList<>(Arrays.asList(11, 2, 4)));
+        inp.add(new ArrayList<>(Arrays.asList(4, 5, 6)));
+        inp.add(new ArrayList<>(Arrays.asList(10, 8, -12)));
+        System.out.println(solution3.solve(inp));
+        
+
     }
 }
 
